@@ -1,0 +1,95 @@
+footer{
+    padding: 30px 50px;
+    background: #1d2547;
+    padding: 100px 50px 50px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 60px;
+    width: 100%;
+    /* margin-top: 500px; */
+}
+.footTop{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footDiv1{
+    max-width: 300px;
+    display: flex;
+    justify-content: start;
+    align-items: start;    
+    flex-direction: column;
+    gap: 20px;
+}
+.footDiv1 img{
+    width: 70px;
+}
+.footDiv1 p{
+    color: #c2c5db;
+    font-size: 14px;
+}
+.footIcons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: white;
+}
+.footIcons i{
+    padding: 10px 12px;
+    border: 1px solid white;
+    border-radius: 50%;
+    transition: 0.2s linear;
+}
+.footIcons i:hover{
+    rotate: 180deg;
+    background: #fd8f5f;
+    border: 1px solid #fd8f5f;
+}
+.footDiv2{
+display: flex;
+justify-content: center;
+align-items: start;
+flex-direction: column;
+gap: 30px;
+color: white;
+}
+.footDiv2 ul{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 15px; 
+}
+.footDiv2 ul li a{
+    color: #c2c5db;
+    font-size: 14px;
+    transition: 0.2s linear;
+}
+.footDiv2 ul li a:hover{
+    color: #fd8f5f;
+    text-decoration: underline !important;
+}
+.footBottom{
+    font-size: 14px;
+    color: #c2c5db;
+}
+.footBottom i{
+    color:#fd8f5f ;
+    letter-spacing: 5px;
+    font-size: 18px;
+    padding: 5px;
+}
+@media only screen and (max-width: 797px) {
+    .footTop {
+      flex-direction: column;
+      gap: 50px;
+      text-align: center;
+    }
+    .footDiv1{
+        align-items: center;
+    }
+  }
