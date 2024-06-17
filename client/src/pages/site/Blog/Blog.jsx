@@ -1,10 +1,14 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 const Blog = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+       <Helmet>
+        <title>Blog</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
+    </>
   )
 }
 

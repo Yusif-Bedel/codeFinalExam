@@ -2120,11 +2120,11 @@ li {
   right: 17px;
 }
 .login-bg {
-  height: 100vh;
+  height: 150vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: url(../img/hero/h1_hero.png);
+  background-image: url(./assets/h1_hero.png);
 }
 .login-form-area {
   position: relative;

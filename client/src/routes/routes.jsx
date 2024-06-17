@@ -8,12 +8,13 @@ import BlogDetail from "../pages/site/BlogDetail/BlogDetail";
 import CardDetail from "../pages/site/CardDetail/CardDetail";
 import Contact from "../pages/site/Contact/Contact";
 import Home from "../pages/site/Home/Home";
+import Loading from "../pages/site/Loading/Loading";
 import Login from "../pages/site/Login/Login";
 import Product from "../pages/site/Product/Product";
 import Register from "../pages/site/Register/Register";
 import SiteRoot from "../pages/site/SiteRoot";
 import Wishlist from "../pages/site/Wishlist/Wishlist";
-
+import Error from "../pages/site/Error/Error";
 const ROUTES=[
     {
         path:"/",
@@ -62,6 +63,14 @@ const ROUTES=[
             {
                 path:"blogDetail/:id",
                 element:<BlogDetail/>
+            },
+            {
+                path:"salam",
+                element:<Loading/>
+            },
+            {
+                path:"sagol",
+                element:<Error/>
             }
         ]
     },

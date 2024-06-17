@@ -1,8 +1,13 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 const Contact = () => {
   return (
     <>
+     <Helmet>
+        <title>Contact</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
       <main style={{paddingTop:"100px"}}>
       <div className="slider-area">
         <div className="slider-active">

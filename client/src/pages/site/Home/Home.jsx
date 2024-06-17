@@ -8,12 +8,18 @@ import "aos/dist/aos.css";
 import insta from '../../../assets/insta.png';
 import insta1 from '../../../assets/instra1.png';
 import insta2 from '../../../assets/instra2.png';
+import { Helmet } from "react-helmet";
+
 const Home = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
   return (
     <>
+   <Helmet>
+        <title>Home</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
       <main style={{ paddingTop: "100px" }}>
         <div className="slider-area ">
           <div className="slider-active">
@@ -42,7 +48,7 @@ const Home = () => {
                         data-aos="fade-up"
                         data-aos-duration="1200"
                       >
-                        <a href="industries.html" className="btn hero-btn">
+                        <a href="#" className="btn hero-btn">
                           Discover More
                         </a>
                       </div>
