@@ -102,6 +102,7 @@ color: red;
     right: -300px;
     flex-direction: column;
     transition: 0.3s ease;
+    z-index: 1001;
 }
 .barNav ul{
 display: flex;

@@ -1,9 +1,14 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
     <>
+     <Helmet>
+        <title>Register</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
       <main class="login-bg">
         <div class="register-form-area">
           <div class="container">

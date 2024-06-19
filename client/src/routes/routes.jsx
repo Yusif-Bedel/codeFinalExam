@@ -15,79 +15,75 @@ import Register from "../pages/site/Register/Register";
 import SiteRoot from "../pages/site/SiteRoot";
 import Wishlist from "../pages/site/Wishlist/Wishlist";
 import Error from "../pages/site/Error/Error";
-const ROUTES=[
-    {
-        path:"/",
-        element:<SiteRoot/>,
-        children:[
-            {
-                path:"",
-                element:<Home/>
-            },
-            {
-                path:"about",
-                element:<About/>
-            },
-            {
-                path:"product",
-                element:<Product/>
-            },
-            {
-                path:"login",
-                element:<Login/>
-            },
-            {
-                path:"register",
-                element:<Register/>
-            },
-            {
-                path:"wishlist",
-                element:<Wishlist/>
-            },
-            {
-                path:"basket",
-                element:<Basket/>
-            },
-            {
-                path:"blog",
-                element:<Blog/>
-            },
-            {
-                path:"contact",
-                element:<Contact/>
-            },
-            {
-                path:"cardDetail/:id",
-                element:<CardDetail/>
-            },
-            {
-                path:"blogDetail/:id",
-                element:<BlogDetail/>
-            },
-            {
-                path:"salam",
-                element:<Loading/>
-            },
-            {
-                path:"sagol",
-                element:<Error/>
-            }
-        ]
-    },
-    {
-        path:"/admin",
-        element:<AdminRoot/>,
-        children:[
-            {
-                path:"",
-                element:<Products/>
-            },
-            {
-                path:"add",
-                element:<Add/>
-            }
-        ]
-    }
-]
+const ROUTES = [
+  {
+    path: "/",
+    element: <SiteRoot />,
+    children: [
+      {
+        path: "",
+        element: <Home />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "product",
+        element: <Product />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "wishlist",
+        element: <Wishlist />,
+      },
+      {
+        path: "basket",
+        element: <Basket />,
+      },
+      {
+        path: "blog",
+        element: <Blog />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      {
+        path: "cardDetail/:id",
+        element: <CardDetail />,
+      },
+      {
+        path: "blogDetail/:id",
+        element: <BlogDetail />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminRoot />,
+    children: [
+      {
+        path: "",
+        element: <Products />,
+      },
+      {
+        path: "add",
+        element: <Add />,
+      }
+    ],
+  },
+  {
+    path: "*",
+    element: <Error />,
+  },
+];
 
-export default ROUTES
+export default ROUTES;

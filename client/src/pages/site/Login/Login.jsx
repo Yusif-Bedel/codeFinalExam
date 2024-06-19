@@ -1,9 +1,14 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
     <>
+     <Helmet>
+        <title>Login</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
       <main style={{marginTop:"100px",padding:"50px"}}  className="login-bg">
         <div className="login-form-area">
           <div className="container">

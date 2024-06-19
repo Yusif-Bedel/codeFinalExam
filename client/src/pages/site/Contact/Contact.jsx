@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Helmet } from 'react-helmet'
+import MainContext from '../../../context/context'
+import Loading from '../Loading/Loading'
 
 const Contact = () => {
+  const {loading,setLoading}=useContext(MainContext)
   return (
     <>
-     <Helmet>
+    {
+      loading ? (<Loading/>):(<React.Fragment>
+        <Helmet>
         <title>Contact</title>
         <meta name="description" content="Helmet application" />
     </Helmet>
@@ -18,8 +23,8 @@ const Contact = () => {
               <div className="row">
                 <div className="col-xl-6 col-lg-8 col-md-8">
                 <div className="hero__caption hero__caption2">
-                      <h1 data-animation="fadeInUp" data-delay=".4s">About</h1>
-                      <p style={{ fontSize: "15px", fontWeight: "500", color: "white" }}>Home > About</p>
+                      <h1 data-animation="fadeInUp" data-delay=".4s">Contact</h1>
+                      <p style={{ fontSize: "15px", fontWeight: "500", color: "white" }}>Home > Contact</p>
                     </div>
                 </div>
               </div>
@@ -140,6 +145,8 @@ const Contact = () => {
         </div>
       </section>
       </main>
+      </React.Fragment>)
+    }
     </>
   )
 }

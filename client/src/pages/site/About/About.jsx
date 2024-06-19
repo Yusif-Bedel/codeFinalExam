@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './About.css';
@@ -12,15 +12,20 @@ import services2 from '../../../assets/services2.svg';
 import services3 from '../../../assets/services3.svg';
 import services4 from '../../../assets/services4.svg';
 import Helmet from 'react-helmet'
+import MainContext from '../../../context/context';
+import Loading from '../Loading/Loading';
 
 const About = () => {
+  const {loading,setLoading}=useContext(MainContext)
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
 
   return (
     <>
-     <Helmet>
+     {
+      loading ? (<Loading/>) : (<React.Fragment>
+        <Helmet>
         <title>About</title>
         <meta name="description" content="Helmet application" />
     </Helmet>
@@ -159,6 +164,8 @@ const About = () => {
           </div>
         </div>
       </main>
+      </React.Fragment>)
+     }
     </>
   )
 }
