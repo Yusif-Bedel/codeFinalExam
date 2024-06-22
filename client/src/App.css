@@ -6,6 +6,44 @@
   list-style-type: none !important;
   font-family: "Poppins", sans-serif;
 }
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 18px;
+  text-align: left;
+  padding-top: 100px;
+}
+
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
 .author_widget {
   background-color: #f9f9f9;
   padding: 20px;
@@ -35,7 +73,9 @@
     transform: translateX(0);
   }
 }
-
+.wishLink:hover{
+color: orangered;
+}
 .author_widget {
   animation: fadeInRight 0.8s ease-out;
 }
@@ -53,7 +93,7 @@
   position: fixed;
   top: 100px;
   left: 56%;
-  background-image: linear-gradient(to right, #FFD194, #D1913C);
+  background: #f2e1d9;
 }
 .cardLink:hover {
   text-decoration: underline !important;

@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Router, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import './App.css'
 import ROUTES from './routes/routes'
 import MainContext from './context/context'
@@ -6,9 +6,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import Header from './layout/admin/Header/Header'
 function App() {
   const [products,setProducts]=useState([])
   const [loading,setLoading]=useState(true)
+  const [loginned,setLoginned]=useState(false)
+  const [blogs,setBlogs]=useState([])
   useEffect(()=>{
     axios.get("http://localhost:8080/api/products").then(res=>{
       console.log(res.data.data)
@@ -16,16 +19,22 @@ function App() {
       setLoading(false)
     })
   },[])
+  useEffect(()=>{
+    axios.get("http://localhost:8080/api/blogs").then(res=>{
+      setBlogs([...res.data.data])
+    })
+  },[])
   
   const router=createBrowserRouter(ROUTES)
   const contextData={
-    products,setProducts,loading,setLoading
+    products,setProducts,loading,setLoading,loginned,setLoginned,blogs,setBlogs
   }
   return (
     <>
       <MainContext.Provider value={contextData}>
         <RouterProvider router={router} />
       </MainContext.Provider>
+
     </>
   )
 }

@@ -1,9 +1,14 @@
-const UsersModel = require("../models/user.model");
+const generateAccessToken = require("../helpers/generateAccessToken");
+const sendVerifyEmail = require("../helpers/sendMail");
+const UserModel = require("../models/user.model");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const user_controller = {
   getAll: async (req, res) => {
     try {
-      const users = await UsersModel.find();
+      const users = await UserModel.find();
       if (users.length > 0) {
         res.status(200).json({
           message: "success",
@@ -22,11 +27,10 @@ const user_controller = {
       });
     }
   },
-
   getOne: async (req, res) => {
     const { id } = req.params;
     try {
-      const user = await UsersModel.findById(id);
+      const user = await UserModel.findById(id);
       if (user) {
         res.status(200).json({
           message: "success",
@@ -45,11 +49,10 @@ const user_controller = {
       });
     }
   },
-
   delete: async (req, res) => {
     const { id } = req.params;
     try {
-      const response = await UsersModel.findByIdAndDelete(id);
+      const response = await UserModel.findByIdAndDelete(id);
       if (response) {
         res.status(200).json({
           message: "deleted",
@@ -68,11 +71,10 @@ const user_controller = {
       });
     }
   },
-
   update: async (req, res) => {
     const { id } = req.params;
     try {
-      const response = await UsersModel.findByIdAndUpdate(id, req.body, {
+      const response = await UserModel.findByIdAndUpdate(id, req.body, {
         new: true,
       });
       if (response) {
@@ -93,42 +95,132 @@ const user_controller = {
       });
     }
   },
-
-  post: async (req, res) => {
+  register: async (req, res) => {
     try {
-      const { username, email } = req.body;
-
-      const dublicateUserName = await UsersModel.find({ username: username });
-      const dublicateUserEmail = await UsersModel.find({ email: email });
-
+      const { username, email, password } = req.body;
+  
+      // Check for duplicate username and email
+      const [duplicateUserName, duplicateUserEmail] = await Promise.all([
+        UserModel.findOne({ username }),
+        UserModel.findOne({ email })
+      ]);
+  
       let message = "";
-
-      if (dublicateUserName.length > 0) {
+  
+      if (duplicateUserName) {
         message = "username already exists";
       }
-
-      if (dublicateUserEmail.length > 0) {
+  
+      if (duplicateUserEmail) {
         message = "email already exists";
       }
-      if (message.length > 0) {
-        res.send({
+  
+      if (message) {
+        return res.status(400).json({
           message: message,
           error: true,
         });
-      } else {
-        const newUser = new UsersModel(req.body);
-        const user = await newUser.save();
-        res.status(201).json({
-          message: "posted",
-          error: false,
-          data: user,
-        });
       }
+  
+      // Hash the password
+      const saltRounds = 10;
+      const salt = await bcrypt.genSalt(saltRounds);
+      const hashedPassword = await bcrypt.hash(password, salt);
+  
+      // Construct new user object
+      const newUser = {
+        username,
+        email,
+        password: hashedPassword,
+        src: req.file ? `http://localhost:8080/api/uploads/${req.file.filename}` : null
+      };
+  
+      const user = new UserModel(newUser);
+  
+      // Generate JWT token
+      const token = jwt.sign(
+        { email: newUser.email },
+        process.env.PRIVATE_KEY,
+        { expiresIn: "1d" }
+      );
+  
+      // Send verification email
+      sendVerifyEmail(newUser.email, token);
+  
+      // Save the new user
+      await user.save();
+  
+      res.status(201).json({
+        message: "User registered successfully",
+        error: false,
+        data: user,
+      });
     } catch (error) {
-      res.status(500).send({
-        message: error,
+      console.error('Registration error:', error);
+      res.status(500).json({
+        message: "An error occurred during registration",
         error: true,
       });
+    }
+  },
+  user_login: async (req, res) => {
+    const user = await UserModel.findOne({
+      email: req.body.email,
+      role: "client",
+    });
+    if (user) {
+      bcrypt.compare(
+        req.body.password,
+        user.password,
+        function (err, response) {
+          if (response) {
+            if (user.isVerified == true) {
+              //generate token
+           const token=generateAccessToken(user)
+              res.send({
+                message: "signed in successfully",
+                auth: true,
+                user: user,
+                token:token
+              });
+            } else {
+              res.send({
+                message: "verify your email",
+                auth: false,
+              });
+            }
+          } else {
+            res.send({
+              message: "email or password incorrect",
+              auth: false,
+            });
+          }
+        }
+      );
+    } else {
+      res.send({
+        message: "no such user",
+        auth: false,
+      });
+    }
+  },
+  verify: async (req, res) => {
+    const { token } = req.params;
+    const validToken = jwt.verify(token, process.env.PRIVATE_KEY);
+
+    if (validToken) {
+      const { email } = validToken;
+      const user = await UserModel.findOne({ email: email });
+
+      if (user) {
+      await  UserModel.findByIdAndUpdate(user._id, { isVerified: true });
+        res.redirect("http://localhost:5173/login");
+        return;
+      } else {
+        return res.send({ message: "no such user" });
+      }
+    } else {
+      return res.send({ message: "invalid token", auth: false });
     }
   },
 };

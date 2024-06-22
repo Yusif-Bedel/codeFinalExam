@@ -24,20 +24,20 @@ var productSchema = new mongoose.Schema(
       required: true,
       default: "FOXic",
     },
-    // stock: {
-    //   type: Number,
-    //   required: true,
-    // },
-    // size: {
-    //   type: String,
-    //   required: true,
-    // },
-    // collections: {
-    //   type: String,
-    //   required: true,
-    // },
+    stock: {
+      type: Number,
+      required: true,
+    },
+    size: {
+      type: String,
+      required: true,
+    },
+    collections: {
+      type: String,
+      required: true,
+    },
     images: [],
-    // color: [],
+    color: [],
     rating: {
       type: Number,
       required: true,

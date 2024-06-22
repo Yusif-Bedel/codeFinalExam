@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
 const express = require("express");
 
+const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
 
-const app = express();
+//multer
+const path = require('path')
+app.use('/api/uploads', express.static(path.join(__dirname, '../uploads')))
 
 const PORT = process.env.PORT || 5050;
 

@@ -9,30 +9,19 @@ var blogSchema = new mongoose.Schema(
     description: {
       type: String,
     },
-    description1: {
-      type: String,
+    tagIds: {
+      type: Array,
+      default: [],
     },
-    category: {
-      type: String,
-      required: true,
+    likes: {
+      type: Array,
+      default: [],
     },
-    // tagIds: {
-    //   type: Array,
-    //   default: [],
-    // },
-    // likes: {
-    //   type: Array,
-    //   default: [],
-    // },
     author: {
       type: String,
       default: "Admin",
     },
     src: String,
-    uploadTime:{
-      type:String,
-      required:true
-    }
   },
   {
     timestamps: true

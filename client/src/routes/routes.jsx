@@ -1,4 +1,3 @@
-import Add from "../pages/admin/Add/Add";
 import AdminRoot from "../pages/admin/AdminRoot";
 import Products from "../pages/admin/Products/Products";
 import About from "../pages/site/About/About";
@@ -8,13 +7,15 @@ import BlogDetail from "../pages/site/BlogDetail/BlogDetail";
 import CardDetail from "../pages/site/CardDetail/CardDetail";
 import Contact from "../pages/site/Contact/Contact";
 import Home from "../pages/site/Home/Home";
-import Loading from "../pages/site/Loading/Loading";
 import Login from "../pages/site/Login/Login";
 import Product from "../pages/site/Product/Product";
 import Register from "../pages/site/Register/Register";
 import SiteRoot from "../pages/site/SiteRoot";
 import Wishlist from "../pages/site/Wishlist/Wishlist";
 import Error from "../pages/site/Error/Error";
+import AddProducts from "../pages/admin/AddProducts/AddProducts";
+import AddBlogs from "../pages/admin/AddBlogs/AddBlogs";
+import Blogs from "../pages/admin/Blogs/Blogs";
 const ROUTES = [
   {
     path: "/",
@@ -75,8 +76,16 @@ const ROUTES = [
         element: <Products />,
       },
       {
-        path: "add",
-        element: <Add />,
+        path:"addProducts",
+        element:<AddProducts/>
+      },
+      {
+        path:"addBlogs",
+        element:<AddBlogs/>
+      },
+      {
+        path:"blogs",
+        element:<Blogs/>
       }
     ],
   },
