@@ -125,13 +125,6 @@ const Wishlist = () => {
                       >
                         Continue Shopping
                       </Link>
-                      <Link
-                        style={{ background: "#f2e1d9", marginLeft: "20px" }}
-                        className="btn checkout_btn"
-                        to={"#"}
-                      >
-                        Proceed to checkout
-                      </Link>
                     </div>
                   </div>
                 </div>

@@ -31,7 +31,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footDiv2">
-        <h3>Pertners</h3>
+        <h3>Partners</h3>
           <ul>
             <li><a href="#">Image Licensin</a></li>
             <li><a href="#">Style Guide</a></li>

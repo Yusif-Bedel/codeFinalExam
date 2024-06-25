@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 
 const Basket = () => {
   const { loading, setLoading } = useContext(MainContext);
+  const {subtotal,setSubtotal}=useContext(MainContext)
   const [basket, setBasket] = useState(
     localStorage.getItem("basket")
       ? JSON.parse(localStorage.getItem("basket"))
@@ -50,7 +51,7 @@ const Basket = () => {
   function calculateSubtotal() {
     return basket.reduce((sum, item) => sum + item.totalPrice, 0);
   }
-
+  setSubtotal(basket.reduce((sum, item) => sum + item.totalPrice, 0))
   return (
     <>
       {loading ? (
@@ -182,7 +183,7 @@ const Basket = () => {
                       <Link
                         style={{ background: "#f2e1d9", marginLeft: "20px" }}
                         className="btn checkout_btn"
-                        to={"#"}
+                        to={"/checkout"}
                       >
                         Proceed to checkout
                       </Link>

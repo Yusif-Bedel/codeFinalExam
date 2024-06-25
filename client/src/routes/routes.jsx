@@ -16,6 +16,7 @@ import Error from "../pages/site/Error/Error";
 import AddProducts from "../pages/admin/AddProducts/AddProducts";
 import AddBlogs from "../pages/admin/AddBlogs/AddBlogs";
 import Blogs from "../pages/admin/Blogs/Blogs";
+import Checkout from "../pages/site/Checkout/Checkout";
 const ROUTES = [
   {
     path: "/",
@@ -65,6 +66,10 @@ const ROUTES = [
         path: "blogDetail/:id",
         element: <BlogDetail />,
       },
+      {
+        path:"checkout",
+        element:<Checkout/>
+      }
     ],
   },
   {

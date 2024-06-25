@@ -1,14 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Link, Navigate, useNavigate } from 'react-router-dom'; // Import useHistory
+import { Link, useNavigate } from 'react-router-dom'; // Updated import
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import Swal from 'sweetalert2';
 
 const Register = () => {
-  const navigate = useNavigate(); // Access the history object
-  
+  const navigate = useNavigate();
+
   const initialValues = {
     username: '',
     email: '',
@@ -30,16 +29,14 @@ const Register = () => {
       });
       console.log('Response:', response.data);
 
-      if (response.status === 201) { // Assuming 201 is the success status code
-        
-          navigate('/login'); // Navigate to login page
-        
+      if (response.status === 201) {
+        alert('Registration successful!');
+        navigate('/login'); // Navigate to login page
         resetForm();
       } 
-        
     } catch (error) {
       console.error('Error registering user:', error);
-      
+      alert('Registration failed. Please try again.');
     } finally {
       setSubmitting(false);
     }

@@ -5,11 +5,11 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import loginValidation from "../../../validations/login.validation";
 import MainContext from "../../../context/context";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
-  const {loginned,setLoginned}=useContext(MainContext)
+  const { loginned, setLoginned } = useContext(MainContext);
   const navigate = useNavigate();
-  const [notification, setNotification] = useState({ message: "", type: "" });
 
   const formik = useFormik({
     initialValues: {
@@ -29,34 +29,25 @@ const Login = () => {
 
           const token = response.data.token;
           Cookies.set("token", token, { expires: 1 });
-
-          setNotification({
-            message: response.data.message,
-            type: "success",
-          });
-          setLoginned(!loginned)
+          alert("Logged in successfully!");
+          setLoginned(!loginned);
           navigate("/");
         } else {
-          setNotification({
-            message: response.data.message,
-            type: "error",
-          });
+          alert(response.data.message);
         }
       } catch (error) {
         console.log(error);
-        setNotification({
-          message: "Something went wrong!",
-          type: "error",
-        });
+        alert("Something went wrong!");
       }
     },
   });
 
-  const handleNotificationClose = () => {
-    setNotification({ message: "", type: "" });
-  };
-
   return (
+    <>
+    <Helmet>
+    <title>Login</title>
+    <meta name="description" content="Helmet application" />
+  </Helmet>
     <main style={{ marginTop: "100px", padding: "50px" }} className="login-bg">
       <div className="login-form-area">
         <div className="container">
@@ -103,24 +94,6 @@ const Login = () => {
                     </div>
                   </div>
 
-                  {notification.message && (
-                    <div
-                      className={`notification ${
-                        notification.type === "error"
-                          ? "notification-error"
-                          : "notification-success"
-                      }`}
-                    >
-                      <p>{notification.message}</p>
-                      <button
-                        className="notification-close"
-                        onClick={handleNotificationClose}
-                      >
-                        &times;
-                      </button>
-                    </div>
-                  )}
-
                   <div className="login-footer">
                     <p>
                       Don’t have an account?{" "}
@@ -137,8 +110,8 @@ const Login = () => {
         </div>
       </div>
     </main>
+    </>
   );
 };
 
 export default Login;
-

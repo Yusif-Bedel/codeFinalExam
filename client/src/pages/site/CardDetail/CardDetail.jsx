@@ -73,7 +73,7 @@ const CardDetail = () => {
       ) : (
         <React.Fragment>
           <Helmet>
-            <title>Card Details</title>
+            <title>Product Details</title>
             <meta name="description" content="Helmet application" />
           </Helmet>
           <main style={{ marginTop: "100px" }}>
@@ -85,7 +85,7 @@ const CardDetail = () => {
                       <div className="col-xl-6 col-lg-8 col-md-8">
                         <div className="hero__caption hero__caption2">
                           <h1 data-animation="fadeInUp" data-delay=".4s">
-                            Card Details
+                            Product Details
                           </h1>
                           <p
                             style={{
@@ -94,7 +94,7 @@ const CardDetail = () => {
                               color: "white",
                             }}
                           >
-                            Home > Card Details
+                            Home > Product Details
                           </p>
                         </div>
                       </div>

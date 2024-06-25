@@ -2,13 +2,13 @@ const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
 
 const BlogSchemaValidation = Joi.object({
-  title: Joi.string().min(3).required(),
-  description: Joi.string().min(10).max(500).required(),
-  src: Joi.string().uri(),
-  likes: Joi.array().default([]),
-  comments: Joi.array().default([]),
-  journalistId: Joi.objectId(),
-  tagId: Joi.array()
+  title: Joi.string(),
+  description: Joi.string(),
+  src: Joi.string(),
+  author: Joi.string(),
+  category: Joi.string(),
+  uploadTime:Joi.string(),
+  description1: Joi.string()
 });
 
 module.exports = BlogSchemaValidation;

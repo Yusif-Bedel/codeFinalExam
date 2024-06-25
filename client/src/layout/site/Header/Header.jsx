@@ -96,10 +96,10 @@ const Header = () => {
             />
             <i className="fa-solid fa-magnifying-glass"></i>
           </div>
-          <Link to={"/login"}>
-          {loginned ? (userData.map((item,index)=>{
-            return(<div style={{color:"black"}} key={index}>{item.username}</div>)
-          })): 'My Account'}
+          <Link  to={"/login"}>
+          {loginned ? <a onClick={()=>{
+            setLoginned(!loginned)
+          }}>yusif <i class="fa-solid fa-right-from-bracket"></i></a> : 'My Account'}
           </Link>
           <div className="navWishlist">
             <Link to={"/wishlist"}>

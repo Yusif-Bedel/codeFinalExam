@@ -13,8 +13,20 @@ import MainContext from "../../../context/context";
 import Card from "../../../components/Card/Card";
 import axios from 'axios';
 import Loading from "../Loading/Loading";
+import { Link } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+      window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 const Home = () => {
+
   const { products, setProducts,loading,setLoading } = useContext(MainContext);
   const [activeTab, setActiveTab] = useState("Sofa");
   const [category, setCategory] = useState("sofa");
@@ -48,8 +60,10 @@ const Home = () => {
     setCategory(tab.toLowerCase());
   };
 
+
   return (
     <>
+      <ScrollToTop/>
       {
         loading ? (<Loading/>):(<React.Fragment>
           <Helmet>
@@ -197,7 +211,7 @@ const Home = () => {
             </div>
             <div className="row justify-content-center" style={{ marginLeft: "37%" }}>
               <div className="room-btn">
-                <a href="product.html" className="border-btn">Discover More</a>
+                <Link to={"/product"} className="border-btn">Discover More</Link>
               </div>
             </div>
           </div>

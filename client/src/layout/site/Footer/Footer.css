@@ -63,6 +63,7 @@ color: white;
     align-items: start;
     flex-direction: column;
     gap: 15px; 
+    padding-left: 0;
 }
 .footDiv2 ul li a{
     color: #c2c5db;

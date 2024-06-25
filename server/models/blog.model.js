@@ -9,19 +9,25 @@ var blogSchema = new mongoose.Schema(
     description: {
       type: String,
     },
-    tagIds: {
-      type: Array,
-      default: [],
+    description1: {
+      type: String,
     },
-    likes: {
-      type: Array,
-      default: [],
+    category: {
+      type: String,
+      required: true,
     },
     author: {
       type: String,
       default: "Admin",
     },
-    src: String,
+    src:{
+      type:String,
+      required:true
+    },
+    uploadTime:{
+      type:String,
+      required:true
+    }
   },
   {
     timestamps: true
@@ -31,3 +37,4 @@ var blogSchema = new mongoose.Schema(
 const BlogModel=mongoose.model("BlogModel", blogSchema);
 
 module.exports = BlogModel
+
