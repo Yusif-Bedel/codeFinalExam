@@ -48,70 +48,71 @@ const About = () => {
         </div>
 
         <div className="about-area section-padding40">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-lg-10">
-                <div className="section-tittle mb-60 text-center pt-10">
-                  <h2>Our Story</h2>
-                  <p className="pera">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                </div>
-              </div>
-              <div className="col-lg-12">
-                <div className="about-img pb-bottom">
-                  <img className='w-100' src={about1} alt="" />
-                </div>
-              </div>
-            </div>
-            <div className="row justify-content-center">
-              <div className="col-lg-10">
-                <div className="section-tittle mb-60 text-center pt-10">
-                  <h2>Journey start from</h2>
-                  <p className="pera">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                </div>
-              </div>
-              <div className="col-lg-12">
-                <div className="about-img pb-bottom">
-                  <img className='w-100' src={about2} alt="" />
-                </div>
-              </div>
-            </div>
-            <div className="row justify-content-center">
-              <div className="col-lg-10">
-                <div className="section-tittle text-center pt-10">
-                  <h2>2020</h2>
-                  <p className="pera">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+  <div className="container">
+    <div className="row justify-content-center">
+      <div className="col-lg-10">
+        <div className="section-tittle mb-60 text-center pt-10">
+          <h2>Our Journey</h2>
+          <p className="pera">We embarked on this incredible journey with a vision to innovate and inspire. Our mission is to create impactful solutions that make a difference in the world. We believe in pushing the boundaries of what's possible and strive to exceed expectations at every turn.</p>
         </div>
+      </div>
+      <div className="col-lg-12">
+        <div className="about-img pb-bottom">
+          <img className='w-100' src={about1} alt="" />
+        </div>
+      </div>
+    </div>
+    <div className="row justify-content-center">
+      <div className="col-lg-10">
+        <div className="section-tittle mb-60 text-center pt-10">
+          <h2>Our Beginning</h2>
+          <p className="pera">From our humble beginnings, we have grown into a team of dedicated professionals committed to excellence. Our story is one of perseverance, innovation, and unwavering dedication to our craft. Every challenge has been a stepping stone to greater achievements.</p>
+        </div>
+      </div>
+      <div className="col-lg-12">
+        <div className="about-img pb-bottom">
+          <img className='w-100' src={about2} alt="" />
+        </div>
+      </div>
+    </div>
+    <div className="row justify-content-center">
+      <div className="col-lg-10">
+        <div className="section-tittle text-center pt-10">
+          <h2>2020</h2>
+          <p className="pera">In 2020, we reached a pivotal moment in our journey. It was a year of significant growth and development, where we achieved remarkable milestones. Our team worked tirelessly to overcome obstacles and create meaningful impact through our innovative solutions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <div className="instagram-area pb-padding">
-          <div className="container-fluid">
-            <div className="row align-items-center">
-              <div className="col-xl-3 col-lg-4 col-md-6">
-                <div className="instra-tittle mb-40">
-                  <div className="section-tittle">
-                    <img src={insta} alt="" />
-                    <h2>Get Inspired with Instagram</h2>
-                    <p className="mb-35">Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
-                    <a href="#" className="border-btn">Discover More</a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-9 col-lg-8">
-                <div className="row no-gutters">
-                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                    <img className='w-100' src={insta1} alt="" />
-                  </div>
-                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                    <img className='w-100' src={insta2} alt="" />
-                  </div>
-                </div>
-              </div>
-            </div>
+<div className="instagram-area pb-padding">
+  <div className="container-fluid">
+    <div className="row align-items-center">
+      <div className="col-xl-3 col-lg-4 col-md-6">
+        <div className="instra-tittle mb-40">
+          <div className="section-tittle">
+            <img src={insta} alt="" />
+            <h2>Get Inspired with Instagram</h2>
+            <p className="mb-35">Discover endless inspiration through our Instagram feed. Follow our journey, get insights into our creative process, and see the world through our lens. Join us as we share moments that inspire and motivate.</p>
+            <a href="#" className="border-btn">Explore More</a>
           </div>
         </div>
+      </div>
+      <div className="col-xl-9 col-lg-8">
+        <div className="row no-gutters">
+          <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+            <img className='w-100' src={insta1} alt="" />
+          </div>
+          <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+            <img className='w-100' src={insta2} alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
         <div className="categories-area section-padding40 gray-bg">
           <div className="container">

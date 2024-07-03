@@ -43,8 +43,6 @@ const Checkout = () => {
 
     setLoading(true);
     try {
-      // Here, integrate with your payment API
-      // Example: await processPayment(formState);
       setTimeout(() => {
         alert("Payment done!");
         navigate("/");
